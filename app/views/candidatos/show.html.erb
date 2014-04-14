@@ -28,7 +28,10 @@
 </p>
 
 <br>
+<%= link_to 'Edit', edit_candidato_path(@candidato), :class => 'btn btn-primary' %> |
+<%= link_to 'Back', candidatos_path, :class => 'btn btn-primary' %>
 
+<br>
 <p>Posts:</p>
 
 <br>
@@ -46,7 +49,11 @@
     </p>
     <p>
       <strong>Usuário:</strong>
-      <%= post.user.nome %>
+      <%= link_to post.user.nome, post.user %>
+    </p>
+    <p>
+      <strong>Comentários:</strong>
+      <%= post.comentarios.count %>
     </p>
 
     <br>
@@ -79,5 +86,5 @@
 <% end %> 
 
 
-<%= link_to 'Edit', edit_candidato_path(@candidato) %> |
-<%= link_to 'Back', candidatos_path %>
+
+<%= link_to 'Back', candidatos_path, :class => 'btn btn-primary' %>

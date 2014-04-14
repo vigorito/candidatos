@@ -1,7 +1,12 @@
+<br>
+
+<h1>Post:</h1>
+
+<br>
 
 <p>
   <strong>Candidato:</strong>
-  <%= @post.candidato.nome_urna_candidato %>
+  <%= link_to @post.candidato.nome_urna_candidato, @post.candidato %>
 </p>
 
 <p>
@@ -16,12 +21,20 @@
 
 <p>
   <strong>Usuário</strong>
-  <%= @post.user.nome %>
+  <%= link_to @post.user.nome, @post.user%>
 </p>
 
 <br>
-<p>Comentários:</p>
+
+<% if user_signed_in? %>
+      <% if current_user == @post.user %>
+      <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary' %> |
+    <% end %>
+<% end %>     
+<%= link_to 'Back', candidato_path(@post.candidato), :class => 'btn btn-primary' %>
 <br>
+<br>
+<p>Comentários:</p>
 
 <% @post.comentarios.each do |comentario| %>
 
@@ -33,7 +46,7 @@
     </p>
     <p>
       <strong>Usuário:</strong>
-      <%= comentario.user.nome %>
+      <%= link_to comentario.user.nome, comentario.user %>
     </p>
 
     <br>
@@ -60,9 +73,5 @@
   <% end %>    
 <% end %> 
 
-<% if user_signed_in? %>
-      <% if current_user == @post.user %>
-      <%= link_to 'Edit', edit_post_path(@post) %> |
-    <% end %>
-<% end %>     
-<%= link_to 'Back', candidato_path(@post.candidato) %>
+<%= link_to 'Back', candidato_path(@post.candidato), :class => 'btn btn-primary' %>
+
