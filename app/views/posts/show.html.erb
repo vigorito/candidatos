@@ -27,46 +27,42 @@
 
 <h1><strong>Links:</strong></h1>
 
-<br>
+             
 <% @post.hashtags.each do |hashtag| %>
-
-    <br>
-        
-    
-    <% if hashtag.nome == '' %>
-      <%= link_to url_with_protocol(hashtag.link), url_with_protocol(hashtag.link) %>
-    <% else %>
-      <%= link_to hashtag.nome, url_with_protocol(hashtag.link) %>
+   
+  <% if hashtag.nome == '' %>
+    <%= link_to url_with_protocol(hashtag.link), url_with_protocol(hashtag.link), :target => '_blank' %>
+  <% else %>
+    <%= link_to hashtag.nome, url_with_protocol(hashtag.link), :target => '_blank' %>
+  <% end %>
+                  
+  <% if user_signed_in? %>
+    <% if current_user == @post.user %>
+      <%= link_to 'Deletar', hashtag, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-          
-    <% if user_signed_in? %>
-      <% if current_user == @post.user %>
-        <%= link_to 'Deletar', hashtag, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    <% end %>
-
-    <br>    
+  <% end %>
 
 <% end %>
-
-
-<br>
-<br>
 
 <% if user_signed_in? %>
-      <% if current_user == @post.user %>
-          <%= form_for([@post, @post.hashtags.build]) do |f| %>  
-            
-              <%= f.label :nome %>
-              <%= f.text_field :nome %>
-              <%= f.label :link %>
-              <%= f.text_field :link %>
-            <%= f.hidden_field :post_id, :value => @post.id %>
+    <% if current_user == @post.user %>
+        
+        <%= form_for([@post, @post.hashtags.build]) do |f| %>  
+        
+          <%= f.label :nome %>
+          <%= f.text_field :nome %>
           
-            <%= f.submit 'Incluir', :class => 'btn btn-primary' %>
-          <% end %>  
-      <% end %>
-<% end %>
+          <%= f.label :link %>
+          <%= f.text_field :link %>
+          
+          <%= f.hidden_field :post_id, :value => @post.id %>
+
+          <%= f.submit 'Incluir', :class => 'btn btn-primary' %>
+        <% end %>
+          
+    <% end %>
+<% end %> 
+        
 
 <br>
 

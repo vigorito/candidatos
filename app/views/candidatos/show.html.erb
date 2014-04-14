@@ -58,7 +58,7 @@
 
     <br>
 
-    <%= link_to 'entrar', candidato_post_path(@candidato, post), :class => 'btn btn-primary' %>
+    <%= link_to 'entrar', post_path(post), :class => 'btn btn-primary' %>
     <% if user_signed_in? %>
       <% if current_user == post.user %>
         |<%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %>
