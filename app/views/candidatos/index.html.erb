@@ -8,6 +8,7 @@
       <th>Nome de Urna</th>
       <th>Numero do candidato</th>     
       <th>Sigla partido</th>
+      <th>Posts:</th>
       <th></th>
       
     </tr>
@@ -21,6 +22,7 @@
         <td><%= candidato.nome_urna_candidato %></td>
         <td><%= candidato.numero_candidato %></td>
         <td><%= candidato.sigla_partido %></td>
+        <td><%= candidato.posts.count %></td>
         <td><%= link_to 'Show', candidato, :class => 'btn btn-primary'%></td>
         
       </tr>
