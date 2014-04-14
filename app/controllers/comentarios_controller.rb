@@ -31,7 +31,7 @@ class ComentariosController < ApplicationController
         format.html { redirect_to @comentario.post, notice: 'Comentario was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comentario }
       else
-        format.html { redirect_to @comentario.post, alert: @comentario.errors.first }
+        format.html { redirect_to @comentario.post, alert: @comentario.errors.full_messages.first }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +45,7 @@ class ComentariosController < ApplicationController
         format.html { redirect_to @comentario.post, notice: 'Comentario was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @comentario.post, alert: @comentario.errors.first }
+        format.html { redirect_to @comentario.post, alert: @comentario.errors.full_messages.first }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
       end
     end

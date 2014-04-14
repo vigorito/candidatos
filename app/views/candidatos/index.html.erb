@@ -9,8 +9,7 @@
       <th>Numero do candidato</th>     
       <th>Sigla partido</th>
       <th></th>
-      <th></th>
-      <th></th>
+      
     </tr>
   </thead>
 
@@ -23,13 +22,10 @@
         <td><%= candidato.numero_candidato %></td>
         <td><%= candidato.sigla_partido %></td>
         <td><%= link_to 'Show', candidato %></td>
-        <td><%= link_to 'Edit', edit_candidato_path(candidato) %></td>
-        <td><%= link_to 'Destroy', candidato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Candidato', new_candidato_path %>

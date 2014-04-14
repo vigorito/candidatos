@@ -1,31 +1,24 @@
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+ <% if @post.errors.has_key? :base %>
+   <div id="error_explanation">
+     <%= @post.errors[:base].join(', ') %>
+   </div>
+ <% end %>
   <div class="field">
     <%= f.label :titulo %><br>
     <%= f.text_field :titulo %>
+    <%= error_tag @post, :titulo %>
   </div>
   <div class="field">
     <%= f.label :texto %><br>
     <%= f.text_area :texto %>
+    <%= error_tag @post, :texto %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="field">
-    <%= f.label :candidato_id %><br>
-    <%= f.text_field :candidato_id %>
+    <%= f.hidden_field :candidato_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

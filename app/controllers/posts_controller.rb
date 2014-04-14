@@ -31,7 +31,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post.candidato, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
-        format.html { redirect_to @post.candidato, alert: @post.errors.first }
+        format.html { redirect_to @post.candidato, alert: @post.errors.full_messages.first }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +42,10 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post.candidato, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @post.candidato, alert: @post.errors.first }
+        format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
