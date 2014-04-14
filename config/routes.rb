@@ -1,7 +1,7 @@
 Candidatos::Application.routes.draw do
   resources :comentarios
 
-  
+  resources :hashtags
 
   resources :users
 
@@ -12,6 +12,10 @@ Candidatos::Application.routes.draw do
   resources :posts do 
   	resources :comentarios
   end	
+
+  resources :posts do 
+    resources :hashtags
+  end
 
   resource :user_sessions
 
