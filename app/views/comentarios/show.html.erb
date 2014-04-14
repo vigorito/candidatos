@@ -1,0 +1,19 @@
+
+
+<p>
+  <strong>Texto:</strong>
+  <%= @comentario.texto %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comentario.user %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @comentario.post %>
+</p>
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', post_path(@comentario.post) %>

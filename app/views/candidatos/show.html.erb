@@ -1,0 +1,85 @@
+
+<p>
+  <strong>Sigla uf:</strong>
+  <%= @candidato.sigla_uf %>
+</p>
+
+
+<p>
+  <strong>Nome candidato:</strong>
+  <%= @candidato.nome_candidato %>
+</p>
+
+
+<p>
+  <strong>Numero candidato:</strong>
+  <%= @candidato.numero_candidato %>
+</p>
+
+<p>
+  <strong>Nome urna candidato:</strong>
+  <%= @candidato.nome_urna_candidato %>
+</p>
+
+
+<p>
+  <strong>Sigla partido:</strong>
+  <%= @candidato.sigla_partido %>
+</p>
+
+<br>
+
+<p>Posts:</p>
+
+<br>
+
+<% @candidato.posts.each do |post| %>
+  <%= form_for(post) do |f| %>
+
+    <br>
+        
+    <p>
+      <strong>Titulo:</strong>
+      <%= post.titulo %>
+    </p>
+    <p>
+      <strong>Texto:</strong>
+      <%= post.texto %>
+    </p>
+    <p>
+      <strong>Usuário:</strong>
+      <%= post.user.nome %>
+    </p>
+
+    <br>
+
+    <%= link_to 'entrar', candidato_post_path(@candidato, post), :class => 'btn btn-primary' %>
+    <% if user_signed_in? %>
+      <% if current_user == post.user %>
+        |<%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+
+    <br>    
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_for([@candidato, @candidato.posts.build]) do |f| %>  
+      <div class="field">
+        <%= f.label :titulo %><br>
+        <%= f.text_field :titulo %>
+      </div>
+      <div class="field">
+        <%= f.label :texto %><br>
+        <%= f.text_area :texto %>
+      </div>
+      <%= f.hidden_field :candidato_id, :value => @candidato.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit 'Incluir', :class => 'btn btn-primary' %>
+  <% end %>    
+<% end %> 
+
+
+<%= link_to 'Edit', edit_candidato_path(@candidato) %> |
+<%= link_to 'Back', candidatos_path %>

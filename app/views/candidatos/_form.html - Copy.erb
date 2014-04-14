@@ -1,0 +1,185 @@
+<%= form_for(@candidato) do |f| %>
+  <% if @candidato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidato.errors.count, "error") %> prohibited this candidato from being saved:</h2>
+
+      <ul>
+      <% @candidato.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_geracao %><br>
+    <%= f.text_field :data_geracao %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_geracao %><br>
+    <%= f.text_field :hora_geracao %>
+  </div>
+  <div class="field">
+    <%= f.label :ano_eleicao %><br>
+    <%= f.text_field :ano_eleicao %>
+  </div>
+  <div class="field">
+    <%= f.label :num_turno %><br>
+    <%= f.text_field :num_turno %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_eleicao %><br>
+    <%= f.text_field :descricao_eleicao %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_uf %><br>
+    <%= f.text_field :sigla_uf %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_ue %><br>
+    <%= f.text_field :sigla_ue %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_ue %><br>
+    <%= f.text_field :descricao_ue %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_cargo %><br>
+    <%= f.text_field :codigo_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_cargo %><br>
+    <%= f.text_field :descricao_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_candidato %><br>
+    <%= f.text_field :nome_candidato %>
+  </div>
+  <div class="field">
+    <%= f.label :sequencial_candidato %><br>
+    <%= f.text_field :sequencial_candidato %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_candidato %><br>
+    <%= f.text_field :numero_candidato %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_urna_candidato %><br>
+    <%= f.text_field :nome_urna_candidato %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_situacao_candidatura %><br>
+    <%= f.text_field :cod_situacao_candidatura %>
+  </div>
+  <div class="field">
+    <%= f.label :des_situacao_candidatura %><br>
+    <%= f.text_field :des_situacao_candidatura %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_partido %><br>
+    <%= f.text_field :numero_partido %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_partido %><br>
+    <%= f.text_field :sigla_partido %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_partido %><br>
+    <%= f.text_field :nome_partido %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_legenda %><br>
+    <%= f.text_field :codigo_legenda %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_legenda %><br>
+    <%= f.text_field :sigla_legenda %>
+  </div>
+  <div class="field">
+    <%= f.label :composicao_legenda %><br>
+    <%= f.text_field :composicao_legenda %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_legenda %><br>
+    <%= f.text_field :nome_legenda %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_ocupacao %><br>
+    <%= f.text_field :codigo_ocupacao %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_ocupacao %><br>
+    <%= f.text_field :descricao_ocupacao %>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascimento %><br>
+    <%= f.text_field :data_nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :num_titulo_eleitoral %><br>
+    <%= f.text_field :num_titulo_eleitoral %>
+  </div>
+  <div class="field">
+    <%= f.label :idade_data_eleicao %><br>
+    <%= f.text_field :idade_data_eleicao %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_sexo %><br>
+    <%= f.text_field :codigo_sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_sexo %><br>
+    <%= f.text_field :descricao_sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_grau_instrucao %><br>
+    <%= f.text_field :cod_grau_instrucao %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_grau_instrucao %><br>
+    <%= f.text_field :descricao_grau_instrucao %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_estado_civil %><br>
+    <%= f.text_field :codigo_estado_civil %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_estado_civil %><br>
+    <%= f.text_field :descricao_estado_civil %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_nacionalidade %><br>
+    <%= f.text_field :codigo_nacionalidade %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_nacionalidade %><br>
+    <%= f.text_field :descricao_nacionalidade %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_uf_nascimento %><br>
+    <%= f.text_field :sigla_uf_nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_municipio_nascimento %><br>
+    <%= f.text_field :codigo_municipio_nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_municipio_nascimento %><br>
+    <%= f.text_field :nome_municipio_nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :despesa_max_campanha %><br>
+    <%= f.text_field :despesa_max_campanha %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_sit_tot_turno %><br>
+    <%= f.text_field :cod_sit_tot_turno %>
+  </div>
+  <div class="field">
+    <%= f.label :desc_sit_tot_turno %><br>
+    <%= f.text_field :desc_sit_tot_turno %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

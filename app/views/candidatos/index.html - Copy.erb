@@ -1,0 +1,109 @@
+<h1>Listing candidatos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data geracao</th>
+      <th>Hora geracao</th>
+      <th>Ano eleicao</th>
+      <th>Num turno</th>
+      <th>Descricao eleicao</th>
+      <th>Sigla uf</th>
+      <th>Sigla ue</th>
+      <th>Descricao ue</th>
+      <th>Codigo cargo</th>
+      <th>Descricao cargo</th>
+      <th>Nome candidato</th>
+      <th>Sequencial candidato</th>
+      <th>Numero candidato</th>
+      <th>Nome urna candidato</th>
+      <th>Cod situacao candidatura</th>
+      <th>Des situacao candidatura</th>
+      <th>Numero partido</th>
+      <th>Sigla partido</th>
+      <th>Nome partido</th>
+      <th>Codigo legenda</th>
+      <th>Sigla legenda</th>
+      <th>Composicao legenda</th>
+      <th>Nome legenda</th>
+      <th>Codigo ocupacao</th>
+      <th>Descricao ocupacao</th>
+      <th>Data nascimento</th>
+      <th>Num titulo eleitoral</th>
+      <th>Idade data eleicao</th>
+      <th>Codigo sexo</th>
+      <th>Descricao sexo</th>
+      <th>Cod grau instrucao</th>
+      <th>Descricao grau instrucao</th>
+      <th>Codigo estado civil</th>
+      <th>Descricao estado civil</th>
+      <th>Codigo nacionalidade</th>
+      <th>Descricao nacionalidade</th>
+      <th>Sigla uf nascimento</th>
+      <th>Codigo municipio nascimento</th>
+      <th>Nome municipio nascimento</th>
+      <th>Despesa max campanha</th>
+      <th>Cod sit tot turno</th>
+      <th>Desc sit tot turno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @candidatos.each do |candidato| %>
+      <tr>
+        <td><%= candidato.data_geracao %></td>
+        <td><%= candidato.hora_geracao %></td>
+        <td><%= candidato.ano_eleicao %></td>
+        <td><%= candidato.num_turno %></td>
+        <td><%= candidato.descricao_eleicao %></td>
+        <td><%= candidato.sigla_uf %></td>
+        <td><%= candidato.sigla_ue %></td>
+        <td><%= candidato.descricao_ue %></td>
+        <td><%= candidato.codigo_cargo %></td>
+        <td><%= candidato.descricao_cargo %></td>
+        <td><%= candidato.nome_candidato %></td>
+        <td><%= candidato.sequencial_candidato %></td>
+        <td><%= candidato.numero_candidato %></td>
+        <td><%= candidato.nome_urna_candidato %></td>
+        <td><%= candidato.cod_situacao_candidatura %></td>
+        <td><%= candidato.des_situacao_candidatura %></td>
+        <td><%= candidato.numero_partido %></td>
+        <td><%= candidato.sigla_partido %></td>
+        <td><%= candidato.nome_partido %></td>
+        <td><%= candidato.codigo_legenda %></td>
+        <td><%= candidato.sigla_legenda %></td>
+        <td><%= candidato.composicao_legenda %></td>
+        <td><%= candidato.nome_legenda %></td>
+        <td><%= candidato.codigo_ocupacao %></td>
+        <td><%= candidato.descricao_ocupacao %></td>
+        <td><%= candidato.data_nascimento %></td>
+        <td><%= candidato.num_titulo_eleitoral %></td>
+        <td><%= candidato.idade_data_eleicao %></td>
+        <td><%= candidato.codigo_sexo %></td>
+        <td><%= candidato.descricao_sexo %></td>
+        <td><%= candidato.cod_grau_instrucao %></td>
+        <td><%= candidato.descricao_grau_instrucao %></td>
+        <td><%= candidato.codigo_estado_civil %></td>
+        <td><%= candidato.descricao_estado_civil %></td>
+        <td><%= candidato.codigo_nacionalidade %></td>
+        <td><%= candidato.descricao_nacionalidade %></td>
+        <td><%= candidato.sigla_uf_nascimento %></td>
+        <td><%= candidato.codigo_municipio_nascimento %></td>
+        <td><%= candidato.nome_municipio_nascimento %></td>
+        <td><%= candidato.despesa_max_campanha %></td>
+        <td><%= candidato.cod_sit_tot_turno %></td>
+        <td><%= candidato.desc_sit_tot_turno %></td>
+        <td><%= link_to 'Show', candidato %></td>
+        <td><%= link_to 'Edit', edit_candidato_path(candidato) %></td>
+        <td><%= link_to 'Destroy', candidato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Candidato', new_candidato_path %>

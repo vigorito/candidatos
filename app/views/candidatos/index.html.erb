@@ -1,0 +1,35 @@
+<h1>Listing candidatos</h1>
+
+<table>
+  <thead>
+    <tr>      
+      <th>Sigla uf</th>
+      <th>Nome candidato</th>
+      <th>Nome de Urna</th>
+      <th>Numero do candidato</th>     
+      <th>Sigla partido</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @candidatos.each do |candidato| %>
+      <tr>
+        <td><%= candidato.sigla_uf %></td>
+        <td><%= candidato.nome_candidato %></td>
+        <td><%= candidato.nome_urna_candidato %></td>
+        <td><%= candidato.numero_candidato %></td>
+        <td><%= candidato.sigla_partido %></td>
+        <td><%= link_to 'Show', candidato %></td>
+        <td><%= link_to 'Edit', edit_candidato_path(candidato) %></td>
+        <td><%= link_to 'Destroy', candidato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Candidato', new_candidato_path %>

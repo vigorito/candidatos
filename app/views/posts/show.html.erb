@@ -1,0 +1,65 @@
+
+<p>
+  <strong>Candidato:</strong>
+  <%= @post.candidato.nome_urna_candidato %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @post.titulo %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @post.texto %>
+</p>
+
+<p>
+  <strong>Usuário</strong>
+  <%= @post.user.nome %>
+</p>
+
+<br>
+<p>Comentários:</p>
+<br>
+
+<% @post.comentarios.each do |comentario| %>
+  <%= form_for(comentario) do |f| %>
+
+    <br>
+        
+    <p>
+      <strong>Texto:</strong>
+      <%= comentario.texto %>
+    </p>
+    <p>
+      <strong>Usuário:</strong>
+      <%= comentario.user.nome %>
+    </p>
+
+    <br>
+
+    <% if user_signed_in? %>
+      <% if current_user == comentario.user or current_user == @post.user %>
+        <%= link_to 'Deletar', comentario, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+
+    <br>    
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_for([@post, @post.comentarios.build]) do |f| %>  
+      <div class="field">
+        <%= f.label :texto %><br>
+        <%= f.text_area :texto %>
+      </div>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit 'Incluir', :class => 'btn btn-primary' %>
+  <% end %>    
+<% end %> 
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', candidato_path(@post.candidato) %>
