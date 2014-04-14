@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nome:</strong>
   <%= @user.nome %>
@@ -10,10 +8,49 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p> Posts do Usuário:</p>
+
+<% @user.posts.each do |post| %>
+ 
+    <br>
+
+    <p>
+      <strong>Candidato:</strong>
+      <%= post.candidato.nome_candidato %>
+    </p>
+        
+    <p>
+      <strong>Titulo:</strong>
+      <%= post.titulo %>
+    </p>
+    <p>
+      <strong>Texto:</strong>
+      <%= post.texto %>
+    </p>
+
+    <p>
+      <strong>Usuário:</strong>
+      <%= post.user.nome %>
+    </p>
+
+    <br>
+
+    <%= link_to 'entrar', candidato_post_path(post.candidato, post), :class => 'btn btn-primary' %>
+    <% if user_signed_in? %>
+      <% if current_user == @user %>
+        |<%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+
+    <br>    
+<% end %>
+
+
+<% if user_signed_in? %>
+      <% if current_user == @user %>
+			<%= link_to 'Edit', edit_user_path(@user) %> |
+	  <% end %>
+<% end %>	  	
+<%= link_to 'Back', root_path %>

@@ -34,8 +34,6 @@
 <br>
 
 <% @candidato.posts.each do |post| %>
-  <%= form_for(post) do |f| %>
-
     <br>
         
     <p>
@@ -61,7 +59,7 @@
     <% end %>
 
     <br>    
-  <% end %>
+
 <% end %>
 
 <% if user_signed_in? %>

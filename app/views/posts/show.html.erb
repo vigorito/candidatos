@@ -24,7 +24,6 @@
 <br>
 
 <% @post.comentarios.each do |comentario| %>
-  <%= form_for(comentario) do |f| %>
 
     <br>
         
@@ -46,7 +45,7 @@
     <% end %>
 
     <br>    
-  <% end %>
+    
 <% end %>
 
 <% if user_signed_in? %>
