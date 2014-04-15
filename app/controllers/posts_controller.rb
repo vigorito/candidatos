@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @like = Like.where(user_id: current_user.id, post_id: @post.id)
+    
   end
 
   # GET /posts/new
