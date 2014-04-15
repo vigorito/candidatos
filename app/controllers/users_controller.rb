@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
+        user_session =  @user_session = UserSession.new(session)
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }

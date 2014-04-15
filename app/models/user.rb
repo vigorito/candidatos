@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :posts
 	has_many :comentarios
+	has_many :likes
 	
 	EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 

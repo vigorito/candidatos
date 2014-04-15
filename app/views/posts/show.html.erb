@@ -24,7 +24,27 @@
   <%= link_to @post.user.nome, @post.user%>
 </p>
 <br>
+    <p>Likes: <%= @post.likes.count %></p>
+    <% if user_signed_in? %>
+        <% liker = nil %>
+        <% @post.likes.each do |like| %>
+          <% if like.user_id == current_user.id %>
+              <% liker = like %>
+          <% end %> 
+        <% end %>
+        <% if liker != nil %>
+          <%= link_to 'Descurtir', liker, method: :delete, :class => 'btn btn-primary'  %> 
+          <br>     
+        <% else %>
+          <%= form_for([@post, @post.likes.build]) do |f| %>
+              <%= f.hidden_field :post_id, :value => @post.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit 'Curtir', :class => 'btn btn-primary' %>
+          <% end %>            
+        <% end %> 
+    <% end %>
 
+<br>
 <h1><strong>Links:</strong></h1>
 
              
@@ -38,10 +58,10 @@
                   
   <% if user_signed_in? %>
     <% if current_user == @post.user %>
-      <%= link_to 'Deletar', hashtag, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Deletar', hashtag, method: :delete, data: { confirm: 'Are you sure?' }  %>
     <% end %>
   <% end %>
-
+  <br>
 <% end %>
 
 <% if user_signed_in? %>

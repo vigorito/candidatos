@@ -5,6 +5,8 @@ Candidatos::Application.routes.draw do
 
   resources :users
 
+  resources :likes
+
   resources :candidatos do
    	resources :posts 		
   end		
@@ -16,6 +18,11 @@ Candidatos::Application.routes.draw do
   resources :posts do 
     resources :hashtags
   end
+
+  resources :posts do 
+    resources :likes
+  end
+
 
   resource :user_sessions
 
